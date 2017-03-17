@@ -54,7 +54,7 @@ class Date:
         else:
             self.day-=1;
         s = "%02d/%02d/%04d" % (self.month, self.day, self.year)
-    def addNdays(self,n):
+    def addNDays(self,n):
         while n>0 :
             self.tomorrow()
             print(self)
@@ -64,7 +64,7 @@ class Date:
             self.yesterday()
             print(self)
             n-=1
-    def isbefore(self,d2):
+    def isBefore(self,d2):
         if self.year < d2.year:
             return True
         elif self.year > d2.year:
