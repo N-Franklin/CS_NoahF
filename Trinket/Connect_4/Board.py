@@ -43,6 +43,28 @@ class Board:
                 s += " " + str(x)
 
         return s  # the board is complete, return it
+
+    def setBoard(self, moveString):
+        """ takes in a string of columns and places
+            alternating checkers in those columns,
+            starting with 'X'
+
+            For example, call b.setBoard('012345')
+            to see 'X's and 'O's alternate on the
+            bottom row, or b.setBoard('000000') to
+            see them alternate in the left column.
+
+            moveString must be a string of integers
+        """
+        nextCh = 'X'  # start by playing 'X'
+        for colString in moveString:
+            col = int(colString)
+            if 0 <= col <= self.width:
+                self.addMove(col, nextCh)
+            if nextCh == 'X':
+                nextCh = 'O'
+            else:
+                nextCh = 'X'
     def addMove(self,col,ox):
         for i in range(self.height-1,-1,-1):
             if self.data[i][col]==' ':
@@ -59,9 +81,9 @@ class Board:
                 return False;break;
             return True
     def delMove(self,col):
-        for i in range(0,self.height-1,1):
+        for i in range(0,self.height,1):
             if self.data[i][col]!= ' ':
-                self.data[i][col]=' ';break;
+                self.data[i][col] = ' ';break;
     def winsFor(self,ox):
         H = self.height
         W = self.width
@@ -70,30 +92,31 @@ class Board:
         for row in range(0, H):
             for col in range(0, W - 3):
                 if D[row][col] == ox and \
-                                D[row][col + 1] == ox and \
-                                D[row][col + 2] == ox and \
-                                D[row][col + 3] == ox:
+                            D[row][col + 1] == ox and \
+                            D[row][col + 2] == ox and \
+                            D[row][col + 3] == ox:
                     return True
-            for row in range (H-3,0):
+        for row in range (0,H-3):
+            for col in range(0, W):
                 if D[row][col] == ox and \
-                                D[row+1][col] == ox and \
-                                D[row+2][col] == ox and \
-                                D[row+3][col] == ox:
+                            D[row+1][col] == ox and \
+                            D[row+2][col] == ox and \
+                            D[row+3][col] == ox:
                     return True
-            for i in range (H-3,0):
-                for j in range(W-3,0):
-                    if D[i][j] == ox and \
-                                D[i + 1][j+1] == ox and \
-                                D[i + 2][j+2] == ox and \
-                                D[i + 3][j+3] == ox:
-                        return True
-            for row in range(H-3,0):
-                 for col in range(3,W-1):
-                    if D[row][col] == ox and \
-                                D[row + 1][col - 1] == ox and \
-                                D[row + 2][col - 2] == ox and \
-                                D[row + 3][col - 3] == ox:
-                        return True
+        for i in range (0,H-3):
+            for j in range(0,W-3):
+                if D[i][j] == ox and \
+                            D[i + 1][j+1] == ox and \
+                            D[i + 2][j+2] == ox and \
+                            D[i + 3][j+3] == ox:
+                    return True
+        for row in range(0,H-3):
+             for col in range(3,W):
+                if D[row][col] == ox and \
+                            D[row + 1][col - 1] == ox and \
+                            D[row + 2][col - 2] == ox and \
+                            D[row + 3][col - 3] == ox:
+                    return True
         return False
 
 
