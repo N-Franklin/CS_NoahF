@@ -71,14 +71,14 @@ class Board:
                 self.data[i][col]=ox;break;
 
     def allowsMove(self,col):
-        if self.data[0][col] == ' ':
-            return True
-        else:
-            return False
+        if 0<col<self.width:
+            if self.data[0][col] == ' ':
+                return True
+        return False
     def isFull(self):
-        for i in (0,self.width-1,1):
+        for i in (0,self.width):
             if self.allowsMove(i):
-                return False;break;
+                return False;
             return True
     def delMove(self,col):
         for i in range(0,self.height,1):
@@ -118,6 +118,27 @@ class Board:
                             D[row + 3][col - 3] == ox:
                     return True
         return False
+    def hostGame(self):
+        x=True
+        v=False
+        while v==False:
+            if x==True:
+                print "X's Move"
+                c=input(int)
+                if self.allowsMove(c):
+                    self.addMove(self,c,'X')
+                    v=self.winsFor('X')
+                    x=False
+            if x==False:
+                print "O's Move"
+                c=input(int)
+                if self.allowsMove(c):
+                    self.addMove(self,c,'O')
+                    v=self.winsFor('O')
+                    x=True
+            print self
+
+
 
 
 

@@ -1,4 +1,6 @@
-
+import math
+from random import randint
+from Board import Board
 class Player:
     def __init__(self, ox, tbt, ply):
         self.ox=ox
@@ -43,8 +45,18 @@ class Player:
                 k.append(i)
         return k
     def tiebreakMove(self,board):
+        scores=self.findScore(board)
+        high=self.highScores(scores)
+        q=len(high)-1
         if self.tbt =='LEFT':
-            
+            return high[0]
+        elif self.tbt=='RIGHT':
+            return high[q]
+        else:
+            return high[randint(0,q)]
+    def foresight(self,board):
+        c=self.tiebreakMove(board)
+        board.addMove(self,c,self.ox)
 
 
 
