@@ -33,15 +33,16 @@ class Player:
         for Col in range(0,Board.width):
             scores.append(self.scoreBoard(Board))
         return scores
-    def highScores(self,scores):
+    def highScores(self,scores,board):
         k=[]
         b=0
         for i in range(0,scores.length):
-            if scores[i]>b:
+            if scores[i]>b and self.foresight(board,i):
                 b=scores[i]
                 k=[]
+
                 k.append(i)
-            elif scores[i]==b:
+            elif scores[i]==b and self.foresight(board,i):
                 k.append(i)
         return k
     def tiebreakMove(self,board):
@@ -54,10 +55,20 @@ class Player:
             return high[q]
         else:
             return high[randint(0,q)]
-    def foresight(self,board):
-        c=self.tiebreakMove(board)
-        board.addMove(self,c,self.ox)
 
+    # checks to see if move will lead to an immediate loss
+    def foresight(self,board,c):
+
+        for i in range(0,board.width):
+            l = board.addMove(self, c, self.ox)
+            l.addMove(self,i,self.opp)
+            if l.scoreBoard(self)==0:
+                return False
+        else:
+            return True
+
+    def nextMove(self,board):
+        return self.tiebreakMove(board)
 
 
 
