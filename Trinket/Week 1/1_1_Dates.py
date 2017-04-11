@@ -87,3 +87,5 @@ def copy(self):
     """
     dnew = Date(self.month, self.day, self.year)
     return dnew
+
+a='OMGLOLDATES NEW TEST'
