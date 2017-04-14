@@ -19,3 +19,5 @@ def mergeSort(alist):
                 alist[k]=righthalf[j]
                 j=j+1
             k=k+1
+            dfa;lfkja;lskdfja;lief;
+            break;
