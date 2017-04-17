@@ -4,9 +4,11 @@ def selectSort(a):
     i=0
     #smallest value
     v=100000000000
+    #sort as many times as values in list
     for s in range(0,l,1):
-    #iterate thru loop
+
         v=100000000000
+        #for one sort, go thru the list pick smallest value and swap
         for p in range(s,l,1):
         #if it's the smallest value
             if a[p]<v:
