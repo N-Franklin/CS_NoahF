@@ -1,3 +1,4 @@
+#Not quite insert sort but close enough(actually bubble sort)
 def insertSort(a):
     l=len(a)
     v=0
