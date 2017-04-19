@@ -15,8 +15,8 @@ def selectSort(a):
             #change the indices
                 i=p
                 v=a[p]
-        a[i]=a[s]
-        a[s]=v
+                a[i]=a[s]
+                a[s]=v
     print a
 alist = [54, 26, 93, 17, 77, 31, 44, 55, 20]
 l=selectSort(alist)

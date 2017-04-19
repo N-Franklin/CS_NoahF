@@ -20,8 +20,8 @@ def quicksort(list,start,stop):
                 right -= 1
                 print('So the list becomes:')
                 print(list)
-                quicksort(list, start, right)
-                quicksort(list, left, stop)
+    quicksort(list, start, right)
+    quicksort(list, left, stop)
 alist = [54, 26, 93, 17, 77, 31, 44, 55, 20]
 l=quicksort(alist,0,8)
 print(l)
