@@ -5,12 +5,14 @@ def sequentialSearch(alist,item):
             return True
     return False
 
-def binarySearch(alist,item):
-    l=len(alist)
-    if l==0:
+def binarySearch(alist,item, start,stop):
+    l=start-stop
+    if stop<=start:
         return False
-    r=l/2
+    r=(start+l/2)
     if alist[r]==item:
         return True
-    else:
-        return
+    elif alist[r]<item:
+        return binarySearch(alist,item,start,r)
+    elif alist[r]>item:
+        return binarySearch(alist,item,r,stop)
