@@ -30,8 +30,8 @@ def QuickSort(list,start,stop):
 '''
 
 def QuickSort(list,start,stop):
-    if start>=stop:
-        i=0;
+    if start>=stop-1:
+        return list
     else:
         pivot = list[start]
         left = start
@@ -47,8 +47,10 @@ def QuickSort(list,start,stop):
             right -= 1
             print('So the list becomes:')
             print(list)
-            print str(right)+','+str(left)
+            print str(left)+','+str(right)
+        print 'sorting' + str(start) +' '+str(right)
         QuickSort(list, start, right)
+        print 'sorting' + str(left) + ' ' + str(stop)
         QuickSort(list, left, stop)
 alist = [54, 26, 93, 17, 77, 31, 44, 55, 20]
 l=QuickSort(alist,0,9)
