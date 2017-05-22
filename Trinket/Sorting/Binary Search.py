@@ -1,4 +1,8 @@
-def binarySearch(list,int,start,stop):
+
+def binarySearch(list,int,start,stop,count):
+    count+=1
+    if count==len(list)-1:
+        return False
     mid=(stop-start)/2+start
     if list[mid]==int:
         return mid
@@ -6,12 +10,12 @@ def binarySearch(list,int,start,stop):
         if mid==0:
             return False
         else:
-            return binarySearch(list,int,start,mid)
+            return binarySearch(list,int,start,mid,count)
     elif list[mid]<int:
         if mid==len(list)-1:
             return False
         else:
-            return binarySearch(list,int,mid,stop)
+            return binarySearch(list,int,mid,stop,count)
 
 q=[17, 20, 26, 31, 44, 54, 55, 77, 93]
-print binarySearch(q,20,0,8)
+print binarySearch(q,20,0,8,0)
