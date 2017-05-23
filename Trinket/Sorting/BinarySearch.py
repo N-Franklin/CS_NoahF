@@ -1,6 +1,5 @@
 #this runs the binarySearch function with the correct bounds
 def search(list,int):
-
     return binarySearch(list,int,0,len(list)-1,0)
 
 
@@ -18,7 +17,7 @@ def binarySearch(list,int,start,stop,count):
             return False
     mid=(stop-start)/2+start
     if list[mid]==int:
-        return mid
+        return 'The item is in the list at index: '+ str(mid)
     elif list[mid]>int:
             return binarySearch(list,int,start,mid,count)
     elif list[mid]<int:
