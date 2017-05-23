@@ -1,4 +1,7 @@
 
+def search(list,int):
+    return binarySearch(list,int,0,len(list)-1,0)
+
 def binarySearch(list,int,start,stop,count):
     count+=1
     if count==len(list)-1:
