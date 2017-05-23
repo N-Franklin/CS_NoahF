@@ -20,4 +20,8 @@ class Stack:
 def parChecker(l):
     c = Stack()
     for i in (len(l)):
-        break;
+        if l[i-1]=='(':
+            c.push(i)
+        elif l[i-1]==')':
+            c.pop()
+    return c.isEmpty()
