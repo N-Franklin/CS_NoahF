@@ -24,7 +24,7 @@ class Stack:
 #l denotes the string of ()'s
 def parChecker(l):
     c = Stack()
-    for i in (0,len(l)-1):
+    for i in range (0,len(l)):
         if l[i]=='(':
             c.push(l[i])
         elif l[i]==')'and not c.isEmpty():
@@ -35,7 +35,7 @@ def parChecker(l):
 
 def balSymChecker(l):
     c = Stack()
-    for i in (0,len(l)-1):
+    for i in range (0,len(l)):
         if l[i]==['(' or '[' or '{']:
             c.push(i)
         elif l[i]==[')' or '}'or ']']:
