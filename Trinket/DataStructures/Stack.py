@@ -9,6 +9,9 @@ class Stack:
     def push(self, item):
         self.items.append(item)
 
+    def getItem(self,index):
+        return self.items[index]
+
     def pop(self):
         return self.items.pop()
 
@@ -46,12 +49,14 @@ def balSymChecker(l):
                 return False
     return c.isEmpty()
 #int represente the integer being converted into base two
+
 def divideByTwo(int):
     var=int
     c=Stack()
-    while var>1:
-        c.push(int%2)
+    while var>0:
+        c.push(var%2)
         var/=2
     q=''
-    while c.size()!=0:
-        q.append(c.pop)
+    for item in range(c.size()-1,-1,-1):
+        q+=str(c.getItem(item))
+    print q
